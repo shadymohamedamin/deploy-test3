@@ -17,12 +17,12 @@ export default function Payment_button({cartItems}) {
         //console.log(cart.ids);
         const token=localStorage.getItem("token");
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
-        const result=await instance.post(`https://online-shoping-eta.vercel.app/api/products/get_the_total_cart`,cart.ids);
+        const result=await instance.post(`https://online-shoooping.vercel.app/api/products/get_the_total_cart`,cart.ids);
         console.log(result);
 
         if(!result){console.log(result);return;}
@@ -75,7 +75,7 @@ export default function Payment_button({cartItems}) {
             return;
         }
         //update the cart items
-        axios.post(`https://online-shoping-eta.vercel.app/api/stripe/create-checkout-session`,{
+        axios.post(`https://online-shoooping.vercel.app/api/stripe/create-checkout-session`,{
             cartItems,
             userId:auth._id
         })

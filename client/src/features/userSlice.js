@@ -16,7 +16,7 @@ export const users=createAsyncThunk("order/orders",async()=>{
       });
       const result=await axios.get('http://localhost:5000/api/orders/get_orders');*/
       const instance = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,7 +33,7 @@ export const make_admin=createAsyncThunk("order/update_orders",async(values)=>{
 
     
     const instance1 = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -46,7 +46,7 @@ export const make_admin=createAsyncThunk("order/update_orders",async(values)=>{
     //console.log("obj: ",obj);
     //console.log(result.data);
     const instance2 = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -63,7 +63,7 @@ export const delete_user=createAsyncThunk("order/delete_user",async(values)=>{
     //console.log(values);
 
     const instance = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -84,7 +84,7 @@ export const update_user=createAsyncThunk("user/update_user",async(values)=>{
     console.log("values",values);
     //alert(values.name)
     const instance = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
             Authorization: `Bearer ${token}`,
         },

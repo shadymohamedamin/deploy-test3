@@ -1,22 +1,73 @@
-export default function Edit_Product(){return (<div>shady</div>)}
-/*import * as React from 'react';
-import Button from '@mui/material/Button';
+//export default function Edit_Product(){return (<></>)}
+import * as React from 'react';
+/*import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import DialogTitle from '@mui/material/DialogTitle';*/
 import styled from 'styled-components';
 import { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { productsUpdate } from '../../../features/productSlice';
 import { getTotal, removeFromCart } from '../../../features/cartSlice';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
 //import { productsCreate } from '../../../features/productSlice';
 
 
-export default function Edit_Product({editProd}) {
-    console.log("edit: ",editProd);
+export default function Edit_Product() {
+    //console.log("edit: ",editProd);
+    const [productImage,setProductImage]=useState("")//(editProd?.sr?.secure_url);
+  const [name,setName]=useState("");
+  const [price,setPrice]=useState("");
+  //const [desc,setDesc]=useState("");
+  const [brand,setBrand]=useState("");
+  //const [global,setGlobal]=useState("");
+  const [description,setDescription]=useState("");
+  const [product_quantity,setProductQuantity]=useState("");
+    const params=useParams();
+    const [editProd,setEditProd]=useState({});
+    useEffect(()=>{
+      async function fetch_last(){
+          //try{
+          const token=localStorage.getItem("token");
+          //console.log(token);
+          const instance=axios.create({
+              baseURL:"https://online-shoooping.vercel.app/",
+              headers:{Authorization:`Bearer ${token}`}
+          });
+          const result=await instance.get(`/api/users/get_product/${params.id}`); 
+          //console.log("transaction: ",result.data);
+          //etEditProd(result.data);
+          setName(result.data.name);
+          setBrand(result.data.brand);
+          //console.log("brand",brand);
+          //console.log("see here",result.data);
+          setDescription(result.data.desc);
+          setProductImage(result.data.sr.secure_url);
+          setProductQuantity(result.data.product_quantity);
+          setPrice(result.data.price);
+          //console.log("see here",editProd);
+          /*const indexItem=cart.items.findIndex((element)=>(element.id===result.data._id));
+          if(indexItem>=0&&cart.items[indexItem].quantity>=product.product_quantity||product.product_quantity==0)
+          {
+              sub_but.current.disabled=true;
+              sub_but.current.style.background="gray";
+          }
+          console.log("product: ",result);
+          }
+          catch(err)
+          {
+              console.log(err);
+          }*/
+      
+      }
+      fetch_last();
+},[]);
+    
     const dispatch=useDispatch();
     //const dispatch=useDispatch();
   const [open, setOpen] = React.useState(false);
@@ -53,16 +104,11 @@ export default function Edit_Product({editProd}) {
 
 
 
-  ///
-  const [productImage,setProductImage]=useState(editProd.image);
-  const [name,setName]=useState(editProd.pName);
-  const [price,setPrice]=useState(editProd.pPrice);
-  const [desc,setDesc]=useState("");
-  const [brand,setBrand]=useState(editProd.pBrand);
-  const [description,setDescription]=useState(editProd.pDesc);
-  const [product_quantity,setProductQuantity]=useState(editProd.product_quantity);///
-
-
+  
+  
+  
+  //setName(editProd.name);
+  //console.log("see here",name);
   const handle_product_image=(e)=>{
     const file =e.target.files[0];
     transform(file);
@@ -94,8 +140,8 @@ export default function Edit_Product({editProd}) {
     }
     else setErrorMessage("");
     
-    dispatch(productsUpdate({id:editProd.id,sr:productImage,name,brand,price,desc:description,product_quantity:product_quantity}));
-    setPprod({id:editProd.id,name});
+    dispatch(productsUpdate({id:params.id,sr:productImage,name,brand,price,desc:description,product_quantity:product_quantity}));
+    setPprod({id:params.id,name});
     console.log(pprod);
     
     //console.log({name,brand,description,productImage,price});
@@ -112,9 +158,7 @@ export default function Edit_Product({editProd}) {
       <Edit onClick={handleClickOpen}>
         Edit
       </Edit>
-      <Dialog open={open} onClose={handleClose} fullWidth={true} maxWidth={"md"}>
-        <DialogTitle>Edit Product</DialogTitle>
-        <DialogContent>
+      
                 <div className='create-product-form'>
             <form className='styledForm' onSubmit={submit}>
                 <h3>Create product</h3>
@@ -143,12 +187,7 @@ export default function Edit_Product({editProd}) {
                 
             </div>
             </div>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Update</Button>
-        </DialogActions>
-      </Dialog>
+        
     </div>
   );
 }
@@ -162,4 +201,4 @@ color:white;
 border-radius:3px;
 cursor:pointer;
 background-color:#4b70e2;
-`;*/
+`;

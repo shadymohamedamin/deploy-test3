@@ -31,7 +31,7 @@ export const insert=createAsyncThunk("product/insert",async()=>{
       });
       
       // Make a request to the API
-      const result=await axios.get('https://online-shoping-eta.vercel.app/get');
+      const result=await axios.get('https://online-shoooping.vercel.app/get');
 
 
       /*const instance = axios.create({
@@ -76,7 +76,7 @@ export const productsCreate=createAsyncThunk("product/productsCreate",async(valu
         const result=await axios.post('http://localhost:5000/api/products',values);*/
 
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -122,7 +122,7 @@ export const productsUpdate=createAsyncThunk("product/productsUpdate",async(valu
       const result=await axios.post('http://localhost:5000/api/products',values);*/
 
       const instance = axios.create({
-          baseURL: 'https://online-shoping-eta.vercel.app/',
+          baseURL: 'https://online-shoooping.vercel.app/',
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -161,7 +161,7 @@ export const productsDelete=createAsyncThunk("product/productsDelete",async(id)=
       const token=localStorage.getItem("token");
       console.log(token);
       const instance = axios.create({
-          baseURL: 'https://online-shoping-eta.vercel.app/',
+          baseURL: 'https://online-shoooping.vercel.app/',
           headers: {
             Authorization: `Bearer ${token}`,
           },

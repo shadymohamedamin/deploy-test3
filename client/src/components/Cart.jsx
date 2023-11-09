@@ -20,7 +20,7 @@ export default function Cart() {
   }
   const handle_increase=async(cartItem)=>{
     //console.log(cartItem.id);
-    const result=await axios.get(`https://online-shoping-eta.vercel.app/api/users/get_product/${cartItem.id}`);
+    const result=await axios.get(`https://online-shoooping.vercel.app/api/users/get_product/${cartItem.id}`);
     if(cartItem.quantity+1>result.data.product_quantity)
     {
       toast.error(`the limit of quantity of this product is ${result.data.product_quantity}`);

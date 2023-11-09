@@ -19,7 +19,7 @@ export default function Chart() {
             const token=localStorage.getItem("token");
             //console.log(token);
             const instance=axios.create({
-              baseURL:"https://online-shoping-eta.vercel.app/",
+              baseURL:"https://online-shoooping.vercel.app/",
               headers:{Authorization:`Bearer ${token}`}
             });
             const result=await instance.get("/api/orders/week-sales");

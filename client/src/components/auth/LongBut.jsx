@@ -24,14 +24,14 @@ const handleGoogleLoginSuccess = async(response) => {
           });*/
         //const result=await  instance.post('/api/users/create_product',values);
         console.log("shady",obj);
-    const result=await axios.post('https://online-shoping-eta.vercel.app/api/login/auth-google',{name:obj.name,email:obj.email});
+    const result=await axios.post('https://online-shoooping.vercel.app/api/login/auth-google',{name:obj.name,email:obj.email});
     console.log(result);
     if(result.status==204)
     {
         //console.log("shady not found");
         //setTimeout(() => {window.location.reload();},1000);
         //navigate('/enter-your-password');
-        window.location.href="https://online-shoopping-market.vercel.app/enter-your-password";
+        window.location.href="https://online-shoopping-market-place.vercel.app/enter-your-password";
     }
     else
     {

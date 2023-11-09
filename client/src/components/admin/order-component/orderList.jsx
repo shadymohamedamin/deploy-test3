@@ -345,7 +345,7 @@ const MyComponent = () => {
   const { data, isLoading, error } = useQuery('myOrders', async () => {
     const token=localStorage.getItem("token");
     const instance1 = axios.create({
-      baseURL: 'https://online-shoping-eta.vercel.app/',//'http://localhost:5000/',
+      baseURL: 'https://online-shoooping.vercel.app/',//'http://localhost:5000/',
       headers: {
         Authorization: `Bearer ${token}`,
       },

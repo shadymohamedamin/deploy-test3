@@ -14,7 +14,7 @@ export default function AllTimeData() {
             try{
                 const token=localStorage.getItem("token");
                 const instance=axios.create({
-                    baseURL:"https://online-shoping-eta.vercel.app/",
+                    baseURL:"https://online-shoooping.vercel.app/",
                     headers:{Authorization:`Bearer ${token}`}
                 });
                 const result=await instance.get("/api/users/numberOfUsers");
@@ -32,7 +32,7 @@ export default function AllTimeData() {
             try{
                 const token=localStorage.getItem("token");
                 const instance=axios.create({
-                    baseURL:"https://online-shoping-eta.vercel.app/",
+                    baseURL:"https://online-shoooping.vercel.app/",
                     headers:{Authorization:`Bearer ${token}`}
                 });
                 const result=await instance.get("/api/orders/numberOfOrders");
@@ -50,7 +50,7 @@ export default function AllTimeData() {
             try{
                 const token=localStorage.getItem("token");
                 const instance=axios.create({
-                    baseURL:"https://online-shoping-eta.vercel.app/",
+                    baseURL:"https://online-shoooping.vercel.app/",
                     headers:{Authorization:`Bearer ${token}`}
                 });
                 const result=await instance.get("/api/orders/earning");

@@ -1,6 +1,6 @@
 //import { head } from "../../../backend/routes/register";
 
-export const url="https://online-shoping-eta.vercel.app/api";
+export const url="https://online-shoooping.vercel.app/api";
 
 export const setHeaders=()=>{
     const headers={

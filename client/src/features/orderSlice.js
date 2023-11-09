@@ -16,7 +16,7 @@ export const orders=createAsyncThunk("order/orders",async()=>{
       });
       const result=await axios.get('http://localhost:5000/api/orders/get_orders');*/
       const instance = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ export const get_orders=createAsyncThunk("order/get_orders",async()=>{
     const result=await instance.get('/api/orders/get_orders')//.then((response) => {});*/
     
       // Do something with the response
-      const result=await axios.get('https://online-shoping-eta.vercel.app/api/orders/get_orders');
+      const result=await axios.get('https://online-shoooping.vercel.app/api/orders/get_orders');
       console.log("orders: ",result.data);
   return result?.data;
 })
@@ -56,12 +56,12 @@ export const update_orders=createAsyncThunk("order/update_orders",async(values)=
         return config;
     });*/
     const instance1 = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-    const result1=await instance1.get(`https://online-shoping-eta.vercel.app/api/orders/get_order/${values.id}`);
+    const result1=await instance1.get(`https://online-shoooping.vercel.app/api/orders/get_order/${values.id}`);
     const obj={
         ...result1.data,
         delivery_status:values.value
@@ -69,7 +69,7 @@ export const update_orders=createAsyncThunk("order/update_orders",async(values)=
     //console.log("obj: ",obj);
     //console.log(result.data);
      const instance2 = axios.create({
-        baseURL: 'https://online-shoping-eta.vercel.app/',
+        baseURL: 'https://online-shoooping.vercel.app/',
         headers: {
           Authorization: `Bearer ${token}`,
         },

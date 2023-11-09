@@ -37,7 +37,7 @@ export default function OrderDetails() {
       const token=localStorage.getItem("token");
                 //console.log(token);
       const instance=axios.create({
-        baseURL:"https://online-shoping-eta.vercel.app/",
+        baseURL:"https://online-shoooping.vercel.app/",
         headers:{Authorization:`Bearer ${token}`}
       });
       instance.get(`/api/orders/get_order/${params.id}`)

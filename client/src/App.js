@@ -52,6 +52,7 @@ import ResetPassword from './components/auth/ResetPassword';
 import RechangePassword from './components/auth/RechangePassword';
 //import Dashbord from './components/admin/Dashbord';
 import MyOrders from './components/MyOrders';
+import Edit_Product from './components/admin/product-component/EditProduct';
 //import { GoogleMap,InfoWindowF, MarkerF,useJsApiLoader, useLoadScript  } from '@react-google-maps/api';
 //import { LatLngBounds } from '@react-google-maps/core';
 //import { Map, Marker } from 'react-google-maps';
@@ -85,6 +86,7 @@ function App() {
         <Route path="/admin"                 element={<Dashbord/>   }>
           <Route path="products"             element={<Products/>   }>
             <Route index element={<ProductList/>}/>
+            <Route path='edit/:id' element={<Edit_Product/>}/>
             <Route path="create-product"     element={<CreateProduct/>           }/>
           </Route>
           <Route path="summary"              element={<Summary/>    }/>

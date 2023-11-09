@@ -61,7 +61,7 @@ export default function Home() {
       type:type, 
     }
     //alert(obj.type);
-    const result=await axios.post('https://online-shoping-eta.vercel.app/api/products/category',obj);
+    const result=await axios.post('https://online-shoooping.vercel.app/api/products/category',obj);
     //alert(arr.length)
     setArr(result.data);
   }

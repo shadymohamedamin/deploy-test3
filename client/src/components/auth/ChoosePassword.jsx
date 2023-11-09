@@ -24,7 +24,7 @@ export default function ChoosePassword() {
         if(pass1.length<6){setProblem("password is too short");return;}
         const obj=jwtDecode(localStorage.getItem("googleToken"));
         //console.log("shady",obj);
-        const result=await axios.post('https://online-shoping-eta.vercel.app/api/login/auth-google',{name:obj.name,email:obj.email,password:pass1});
+        const result=await axios.post('https://online-shoooping.vercel.app/api/login/auth-google',{name:obj.name,email:obj.email,password:pass1});
         console.log(result);
         localStorage.setItem("token",result.data);
         dispatch(loadUser());

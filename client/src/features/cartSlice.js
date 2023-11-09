@@ -9,7 +9,7 @@ export const update_cart=createAsyncThunk("cart/update_cart",async(id)=>{
         const token=localStorage.getItem("token");
         console.log(token);
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -38,7 +38,7 @@ export const update_cart=createAsyncThunk("cart/update_cart",async(id)=>{
         //console.log("before updateing.. ",values.value);
         const token=localStorage.getItem("token");
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
                 Authorization: `Bearer ${token}`,
             },

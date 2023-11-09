@@ -43,7 +43,7 @@ const MyComponent = () => {
   const { data, isLoading, error } = useQuery('myOrders', async () => {
     const token=localStorage.getItem("token");
     const instance1 = axios.create({
-      baseURL: 'https://online-shoping-eta.vercel.app/',//'http://localhost:5000/',
+      baseURL: 'https://online-shoooping.vercel.app/',//'http://localhost:5000/',
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -71,13 +71,13 @@ const MyComponent = () => {
       const token=localStorage.getItem("token");
       //alert("old_product._id")
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         });
         //alert(values.value.length)
-        const result=await  instance.post(`https://online-shoping-eta.vercel.app/api/users/increase_product_quantity/${product.id}`);
+        const result=await  instance.post(`https://online-shoooping.vercel.app/api/users/increase_product_quantity/${product.id}`);
 
       if(result.status==200)toast.info("quantity increased successfully");
       else toast.error("error occured");
@@ -91,13 +91,13 @@ const MyComponent = () => {
       const token=localStorage.getItem("token");
       //alert("old_product._id")
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         });
         //alert(values.value.length)
-        const result=await  instance.post(`https://online-shoping-eta.vercel.app/api/users/decrease_product_quantity/${product.id}`);
+        const result=await  instance.post(`https://online-shoooping.vercel.app/api/users/decrease_product_quantity/${product.id}`);
         console.log(result);
        
       if(result.status==200)toast.info("quantity decreased successfully");
@@ -164,17 +164,18 @@ const MyComponent = () => {
           <But onClick={(e)=>handle_increase(row)}>+</But>
       </>
     )},
-    {name:'Sold',selector:row=>row.sold,width:"8%",sortable:true},
+    {name:'Sold',selector:row=>row.sold,width:"%",sortable:true},
     {name:'Actions',width:"30%",selector:row=>(
       <>
         <Actions>
             <Delete onClick={()=>handleDelete(row)}>Delete</Delete>
-            <Edit_Product editProd={row}/>
+            <DeliveredBtn onClick={()=>navigate(`/admin/products/edit/${row.id}`)}> Edit </DeliveredBtn>
             <View onClick={()=>navigate(`/product_details/${row.id}`)}>View</View>
         </Actions>
       </>
     )}
   ];
+  //
   /*var columns = [
     { field: 'id', headerName: 'ID', width: 220 },
     { field: 'image', headerName: 'Image', width: 80 
@@ -329,12 +330,17 @@ button{
 
 const Delete=styled.button`
 background-color:rgb(255,77,73);
-margin-right:20px;
+margin-right:10px;
 
 `
 const View=styled.button`
 background-color:rgb(114,225,40);
-margin-right:20px;
-margin-left:20px;
+margin-right:10px;
+margin-left:10px;
+`
+const DeliveredBtn=styled.button`
+background-color:rgb(102,108,255);
+padding:2px;
+margin:2px;
 `
 export default App;

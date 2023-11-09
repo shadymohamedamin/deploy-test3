@@ -24,7 +24,7 @@ export default function ResetPassword() {
       setProblem(null);
       setSent(null);
       //alert(email);
-      const result=await axios.post(`https://online-shoping-eta.vercel.app/api/login/verify-email/${email}`);
+      const result=await axios.post(`https://online-shoooping.vercel.app/api/login/verify-email/${email}`);
       if(result.status==204){
         setProblem("email not exist please Sign up");
         return;

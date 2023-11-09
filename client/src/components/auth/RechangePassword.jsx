@@ -34,7 +34,7 @@ export default function RechangePassword() {
         if(pass1.length<6){setProblem("password is too short");return;}
         const obj=jwtDecode(params.token);
         //console.log("shady",obj);
-        const result=await axios.post('https://online-shoping-eta.vercel.app/api/login/reset-password',{_id:obj._id,password:pass1});
+        const result=await axios.post('https://online-shoooping.vercel.app/api/login/reset-password',{_id:obj._id,password:pass1});
         if(result.status==200)
         {
             toast.success("your password updated successfully...please login");

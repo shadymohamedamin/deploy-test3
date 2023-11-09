@@ -8,7 +8,7 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const registerUser=createAsyncThunk("auth/registerUser",async(user,{rejectWithValue})=>{
     try{
-        const token=await axios.post(`https://online-shoping-eta.vercel.app/api//register`,{
+        const token=await axios.post(`https://online-shoooping.vercel.app/api/register`,{
             name:user.name,
             email:user.email,
             password:user.password
@@ -22,7 +22,7 @@ export const registerUser=createAsyncThunk("auth/registerUser",async(user,{rejec
 })
 export const loginUser=createAsyncThunk("auth/loginUser",async(user,{rejectWithValue})=>{
     try{
-        const token=await axios.post(`https://online-shoping-eta.vercel.app/api/login`,{
+        const token=await axios.post(`https://online-shoooping.vercel.app/api/login`,{
             email:user.email,
             password:user.password
         });
@@ -39,7 +39,7 @@ export const update_user_products=createAsyncThunk("auth/update_user_products",a
         console.log("before updateing.. ",values.value);
         const token=localStorage.getItem("token");
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -59,7 +59,7 @@ export const get_user_products=createAsyncThunk("auth/get_user_products",async(v
         //console.log("before updateing.. ",values.value);
         const token=localStorage.getItem("token");
         const instance = axios.create({
-            baseURL: 'https://online-shoping-eta.vercel.app/',
+            baseURL: 'https://online-shoooping.vercel.app/',
             headers: {
                 Authorization: `Bearer ${token}`,
             },
